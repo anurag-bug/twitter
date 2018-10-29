@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Analysis</title>
+    <style>
+        body{
+            background:#555;
+        }
+        #piechart{
+            text-align: center;
+            width: 700px; 
+            height: 500px;
+            margin-left:25%;
+        }
+        #desc{
+            color:#eee;
+        }
+        #back{
+            text-decoration:none;
+            color:#eee;
+            margin:10px;
+        }
+        
+    </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -22,7 +42,7 @@
         ]);
 
         var options = {
-          title: 'Analysis of Tweets'
+          title: ''
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -32,6 +52,11 @@
     </script>
 </head>
 <body>
-<div id="piechart" style="width: 900px; height: 500px;"></div>
+<center><h1 id="desc">Analysis of tweets</h1></center>
+<div id="piechart"></div>
+<div id="back">
+    <center><a id="back" href="http://127.0.0.1:8000/twitter/search/">Search Another Term</a></center>
+</div>
+
 </body>
 </html>

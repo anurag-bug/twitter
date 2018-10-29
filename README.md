@@ -1,10 +1,11 @@
 # twitter
-<b>Installation Instruction</b><br>
+Installation Instruction
 1.  cd twitter-master
+
 2.
 //create a virtualenv
     In windows
-    C:\Users\Name\twitter-master> python -m venv myvenv <br>
+    C:\Users\Name\twitter-master> python -m venv myvenv 
     In ubuntu
     $ python3 -m venv myvenv
 3.
@@ -21,10 +22,10 @@
     C:\Users\Name\twitter-master> python -m pip install -r requirements.txt
   
   
- 5. <br>
+ 5.
  // Apply migrations
     (myvenv) ~/twitter-master$ python manage.py migrate
- 6.<br>
+ 6.
  // run server
     (myvenv) ~/twitter-master$ python manage.py runserver
     

@@ -1,6 +1,6 @@
 # twitter
 <b>Installation Instruction</b>
-1.  cd twitter/master
+1.  cd twitter-master
 
 2.
 //create a virtualenv 

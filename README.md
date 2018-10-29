@@ -30,3 +30,4 @@
 ## // run server
 #### (myvenv) ~/twitter-master$ python manage.py runserver
     
+## App will run on http://127.0.0.1:8000/twitter/search/

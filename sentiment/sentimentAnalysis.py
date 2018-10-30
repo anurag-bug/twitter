@@ -51,13 +51,13 @@ class Analysis:
             if (analysis.sentiment.polarity>0):
                 tweetObject=models.positiveTweets()
                 tweetObject.tweetText=tweet.text
-                tweetObject.user=str(tweet.user.name)
+                tweetObject.userName=str(tweet.user.name)
                 tweetObject.time=tweet.created_at
                 tweetObject.save()
             if (analysis.sentiment.polarity<0):
                 tweetObject=models.negativeTweets()
                 tweetObject.tweetText=tweet.text
-                tweetObject.user=str(tweet.user.name)
+                tweetObject.userName=str(tweet.user.name)
                 tweetObject.time=tweet.created_at
                 tweetObject.save()
             if (analysis.sentiment.polarity == 0):  # adding reaction of how people are reacting to find average later

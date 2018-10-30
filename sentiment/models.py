@@ -6,11 +6,11 @@ class tweetModel(models.Model):
     number = models.IntegerField(null=False)
 
 class positiveTweets(models.Model):
-    tweetText = models.TextField(max_length=300,null=False)
-    userName = models.TextField(max_length=20,null=True)
-    time = models.TextField(max_length=10)
+    tweetText = models.TextField(max_length=1000,null=False)
+    userName = models.TextField(max_length=200,default="no username")
+    time = models.TextField(max_length=10,default="no time")
 
 class negativeTweets(models.Model):
-    tweetText = models.TextField(max_length=300,null=False)
-    userName = models.TextField(max_length=20,null=True)
-    time = models.TextField(max_length=10,null=True)
+    tweetText = models.TextField(max_length=1000,null=False)
+    userName = models.TextField(max_length=200,default="no username")
+    time = models.TextField(max_length=10,default="no time")

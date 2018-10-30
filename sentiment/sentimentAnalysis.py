@@ -1,5 +1,6 @@
 import sys,tweepy,csv,re
 from textblob import TextBlob
+from . import models
 class Analysis:
     def __init__(self):
         self.tweets = []
@@ -38,6 +39,8 @@ class Analysis:
 
 
         # iterating through tweets fetched
+        models.positiveTweets.objects.all().delete()
+        models.negativeTweets.objects.all().delete()
         for tweet in self.tweets:
             #Append to temp so that we can store in csv later. I use encode UTF-8
             self.tweetText.append(self.cleanTweet(tweet.text).encode('utf-8'))
@@ -45,7 +48,18 @@ class Analysis:
             analysis = TextBlob(self.removeURL(tweet.text))
             # print(analysis.sentiment)  # print tweet's polarity
             polarity += analysis.sentiment.polarity  # adding up polarities to find the average later
-
+            if (analysis.sentiment.polarity>0):
+                tweetObject=models.positiveTweets()
+                tweetObject.tweetText=tweet.text
+                tweetObject.user=str(tweet.user.name)
+                tweetObject.time=tweet.created_at
+                tweetObject.save()
+            if (analysis.sentiment.polarity<0):
+                tweetObject=models.negativeTweets()
+                tweetObject.tweetText=tweet.text
+                tweetObject.user=str(tweet.user.name)
+                tweetObject.time=tweet.created_at
+                tweetObject.save()
             if (analysis.sentiment.polarity == 0):  # adding reaction of how people are reacting to find average later
                 neutral += 1
             elif (analysis.sentiment.polarity > 0 and analysis.sentiment.polarity <= 0.3):

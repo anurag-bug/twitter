@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>positive</h1>
+{% for i in positive%}
+{{i.tweetText}}<br>
+{{i.userName}}<br>
+{{i.time}}<br>
+{% endfor %}
+
+
+
+
+<h1>negative</h1>
+<br>
+<br>
+{% for i in negative %}
+{{i.tweetText}}<br>
+{{i.userName}}<br>
+{{i.time}}<br>
+{% endfor %}
+
+
+</body>
+</html>

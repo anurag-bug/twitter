@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . import sentimentAnalysis
 from sentiment.forms import *
+from . import models
 def getSearchTerm(request):
     if request.method=='POST':
         form = SearchForm(request.POST)
@@ -22,4 +23,9 @@ def getSearchTerm(request):
 
 
 
+def showTweets(request):
+    positiveList=list(models.positiveTweets.objects.all())
+    negativeList=list(models.negativeTweets.objects.all())
+    context={'positive':positiveList,'negative':negativeList}
+    return render(request,'sentiment/displayTweets.html',context)
 

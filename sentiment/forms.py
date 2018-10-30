@@ -7,4 +7,8 @@ class SearchForm(ModelForm):
     class Meta:
         model=models.tweetModel
         fields = ['term','number']
+        labels = {
+            "term": "Keyword",
+            "number": "No. of Tweets"
+        }
 

@@ -3,12 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+          background-size:cover;
+
+        }
+        input {
+        font-size:40px;
+        }
+
+        .frm{
+          margin-top:50px;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
-<body>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Analyze</button>
+{% block body %}
+{% load staticfiles %}
+<body background="{% static '/sentiment/bgimg.png' %}">
+{% load widget_tweaks %}
+<div class="container">
+    <div>
+        <center>
+            <h2 style="font-family: "Times New Roman", Times, serif;">Feedback Analysis Of Tweets</h2>
+        </center>
+
+    </div>
+    <div class="row">
+  <div class="frm col-sm-6 col-sm-offset-3">
+      <form method="post" novalidate>
+  {% csrf_token %}
+  {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+      {% render_field field class="form-control" placeholder=field.help_text %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+      </div>
+        {%  endblock %}
 </body>
 </html>

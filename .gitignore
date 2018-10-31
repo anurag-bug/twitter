@@ -5,9 +5,5 @@ myvenv
 db.sqlite3
 /static
 .DS_Store
-result.csv
-setup.py
-main.py
-Twitter_Sentiment_Analysis.egg-info
 .idea
 dist

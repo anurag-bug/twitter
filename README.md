@@ -1,11 +1,17 @@
 # Installation Instructions
 #
-#### 1. Navigate to Source Directory
+
+#### 1.	Use git clone to clone this repository to your local machine: 
+```sh 
+$ git clone https://github.com/anurag-bug/twitter.git
+
+```
+#### 2. Navigate to Source Directory
 ```sh 
 $ cd twitter-master
 ```
 
-#### 2.Create a virtualenv
+#### 3.Create a virtualenv
 In windows
 ```sh
 C:\Users\Name\twitter-master> python -m venv myvenv 
@@ -15,7 +21,7 @@ In Linux
 $ python3 -m venv myvenv
 ```
 
-#### 3. Start your virtual environment by running:
+#### 4. Start your virtual environment by running:
 In windows
 ```sh
 C:\Users\Name\twitter-master> myvenv\Scripts\activate
@@ -24,7 +30,7 @@ In ubuntu
 ```sh
 $ source/myvenv/bin/activate
 ```
-#### 4. Installing packages with requirements
+#### 5. Installing packages with requirements
 Ubuntu
 ```sh
 pip install -r requirements.txt
@@ -34,13 +40,14 @@ Windows
 C:\Users\Name\twitter-master> python -m pip install -r requirements.txt
   ```
   
-#### 5. Apply migrations
+#### 6. Apply migrations
 ```sh
+(myvenv) ~/twitter-master$ python manage.py makemigrations
 (myvenv) ~/twitter-master$ python manage.py migrate
 ```
-#### 6. Run server
+#### 7. Run server
 ```sh
-#### (myvenv) ~/twitter-master$ python manage.py runserver
+(myvenv) ~/twitter-master$ python manage.py runserver
 ```
  App will run on http://127.0.0.1:8000/twitter/search/
 
